@@ -1,0 +1,52 @@
+@import '/resources/highcharts/Highcharts-6.1.1/code/css/highcharts.css';
+
+/*epinet custom*/
+.highcharts-color-0 {
+    fill: #c3393a;
+    stroke: #c3393a;
+}
+
+.highcharts-color-1 {
+    fill: #e19130;
+    stroke: #e19130;
+}
+
+.highcharts-color-2 {
+    fill: #f3c930;
+    stroke: #f3c930;
+}
+
+.highcharts-color-3 {
+    fill: #0f3d67;
+    stroke: #0f3d67;
+}
+
+.highcharts-color-4 {
+    fill: #3498d2;
+    stroke: #3498d2;
+}
+
+.highcharts-color-5 {
+    fill: #87c09f;
+    stroke: #87c09f;
+}
+
+.highcharts-color-6 {
+    fill: #9ecb4b;
+    stroke: #9ecb4b;
+}
+
+.highcharts-color-7 {
+    fill: #ca2688;
+    stroke: #ca2688;
+}
+
+.highcharts-color-8 {
+    fill: #8d1123;
+    stroke: #8d1123;
+}
+
+.highcharts-color-9 {
+    fill: #ccd944;
+    stroke: #ccd944;
+}

@@ -1,0 +1,132 @@
+/* navigation */
+.btn-top-menu {
+	color: #ee893a;
+}
+.btn-top-menu:hover,
+.btn-top-menu:focus {
+	color: #cc6f31;
+}
+.navbar-user button.btn-admin:hover,
+.navbar-user button.btn-admin:focus {
+	color: #ee893a;
+}
+.top-menu li.top-menu-item a:hover,
+.top-menu li.top-menu-item a:focus {
+	color: #ee893a;
+}
+.top-menu li.top-menu-item a:hover span,
+.top-menu li.top-menu-item a:focus span,
+.top-menu li.top-menu-item.active a span {
+	width: 100%;
+	background-color: #ee893a;
+}
+/* page */
+.page-title {
+	border-left: 6px solid #ee893a;
+}
+.privacy-content .subtitle {
+	border-left: 3px solid #ee893a;
+}
+.modal-title {
+	color: #ee893a;
+}
+/* footer */
+.footer-link {
+	color: #ee893a;
+}
+.footer-link:hover,
+.footer-link:focus {
+	color: #cc6f31;
+}
+/* sidebar */
+.sub-title {
+	border-top: 1px solid #f3ad75;
+	border-bottom: 1px solid #f3ad75;
+}
+.left-menu .left-menu-item {
+	border-bottom: 1px dashed #f3ad75;
+}
+.left-menu .left-menu-item a.left-menu-title {
+	color: #fae0d1;
+}
+.left-sub-menu .left-sub-menu-item a {
+	color: #fae0d1;
+}
+.left-menu-top-title, .sidebar {
+	background-color: #ee893a;
+}
+/* button */
+.btn-primary,
+.btn-save,
+.btn-search,
+.btn-login {
+	color: #ffffff;
+	background-color: #ee893a;
+	border-color: #ee893a;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-save:hover,
+.btn-save:focus,
+.btn-search:hover,
+.btn-search:focus,
+.btn-login:hover,
+.btn-login:focus {
+	color: #ffffff;
+	background-color: #cc6f31;
+	border-color: #cc6f31;
+}
+.privacy-content a:hover,
+.privacy-content a:focus {
+	color: #ee893a;
+}
+/* table */
+.table.table-list>thead>tr>th, .table.table-list>tbody>tr>th, .table.table-list>tfoot>tr>th {
+	color: #ffffff;
+	background-color: #ee893a;
+}
+table.dataTable.table-list thead th, table.dataTable.table-list thead td, table.dataTable.dataTable.no-footer {
+	border-bottom: 1px solid #ee893a;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+	background: #ee893a;
+	border: 1px solid #ee893a;
+}
+.table.table-list>tr>th, .table.table-list>thead>tr>th {
+	border: 1px solid #d17a35;
+	border-top: 1px solid #d17a35;
+	border-bottom: 1px solid #d17a35;
+}
+.table.table-list>tr>th:first-child, .table.table-list>thead>tr>th:first-child {
+	border-left: 1px solid #d17a35;
+}
+/* panel */
+.panel-heading {
+	background-color: #ee893a;
+}
+/* tab */
+.nav-tabs.page-tabs>li>a {
+	color: #f2a470;
+	background-color: #fbe5d6;
+}
+/* pagination */
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+	background-color: #ee893a;
+	border-color: #ee893a;
+}
+/* login */
+.login-input .input-group i.fa {
+	color: #f2a470;
+}
+.login-input .form-control {
+  border: 1px solid #ee893a;
+}
+/* user-box */
+.user-box {
+	background-color: #fff2e9;
+	border: 1px solid #efc3a7;
+}
+.user-box .user-box-title {
+	color: #ffffff;
+	background-color: #ee893a;
+}

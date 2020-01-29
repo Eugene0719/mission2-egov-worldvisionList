@@ -1,0 +1,465 @@
+/* 종합상황판 */
+.container-map {
+	padding: 0;
+	margin: 0;
+	border: 1px solid #dddddd;
+}
+.farm-popup {
+	position: absolute;
+	background-color: #ffffff;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+	transition: all 0.5s ease;
+}
+.farm-popup-inner {
+	position: relative;
+	padding: 15px 15px;
+}
+.farm-pop-dot {
+	display: block;
+	width: 100%;
+	height: 11px;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	left: 0;
+	bottom: -4px;
+}
+.farm-popup h5, .farm-popup p {
+	padding: 0;
+	margin: 0;
+}
+.farm-popup h5 small {
+	display: inline-block;
+	color: #cccccc;
+	font-weight: 100;
+	line-height: 1.4em;
+	vertical-align: top;
+	padding: 0 3px;
+}
+.farm-popup p {
+	margin-top: 8px;
+}
+img[src="../images/marker.png"] {
+	cursor: pointer;
+}
+
+.info-box {
+	position: absolute;
+	right: 10px;
+	width: 40%;
+	transition: all 0.5s ease;
+}
+.info-display {
+	top: 10px;
+}
+.info-table {
+	top: 180px;
+}
+.info-table-con {
+	top: 10px;
+}
+.info-box.info-table-con {
+	width: 50%;
+}
+.info-status h3 {
+	color: #ffffff;
+	font-size: 1em;
+	text-align: center;
+	padding: 10px 0;
+	margin: 0;
+}
+.title-total {
+	background-color: #999999;
+}
+.title-house {
+	background-color: #6699cc;
+}
+.title-grape {
+	background-color: #ad6bac;
+}
+.title-outdoor {
+	background-color: #cc9900;
+}
+.text-total, text-receive, text-cut, text-error {
+	display: block;
+	float: left;
+}
+.text-receive {
+	color: #4b8ed1;
+}
+.text-error {
+	color: #9c4e4f;
+}
+.text-cut {
+	color: #999999;
+}
+.total-value {
+	display: block;
+	float: right;
+	width: 40px;
+	text-align: center;
+}
+.info-total-list {
+	float: left;
+	width: 100%;
+	padding: 0;
+	margin: 0 0 5px 0;
+}
+.info-total-list li {
+	float: left;
+	width: 100%;
+	padding: 3px 10px 0 10px;
+	margin: 3px 0 0 0 ;
+	border-top: 1px dashed #dddddd;
+}
+.info-total-list li:first-child {
+	border-top: none;
+}
+.badge.total {
+	background-color: #666666;
+}
+.badge.good {
+	background-color: #33cc33;
+}
+.badge.poor {
+	background-color: #cc6666;
+}
+.badge.end {
+	background-color: #999999;
+}
+.info-box .table.table-list>tr>th, .info-box .table.table-list>thead>tr>th {
+	padding: 3px 0;
+}
+.info-box .table.table-list>tr>td, .info-box .table.table-list>tbody>tr>td {
+	padding: 4px 2px;
+}
+.info-box .card {
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.user-box {
+	padding: 10px 8px;
+	margin-bottom: 20px;
+}
+.user-box .user-box-title {
+	font-weight: 100;
+	padding: 5px;
+	margin-right: 10px;
+}
+.card {
+	padding: 5px;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+}
+.card-heading {
+	font-weight: 400;
+	text-align: center;
+	padding: 5px;
+}
+.user-box .card-heading {
+	border-bottom: 1px dashed #cccccc;
+}
+.user-box .card-body {
+	color: #666666;
+	padding: 10px 10px 5px 10px;
+}
+.user-box .card-body span {
+	color: #000000;
+}
+.user-box .card-body .row div {
+	margin-bottom: 5px;
+}
+/* 회원가입 */
+.join-box {
+	position: relative;
+	width: 100%;
+	z-index: 10;
+	padding: 40px;
+	margin: 0;
+}
+.join-heading {
+	text-align: center;
+	padding: 10px 0 30px 0;
+}
+.join-body {
+	padding: 0;
+	margin: 0;
+}
+.join-footer {
+	text-align: center;
+	padding-top: 20px;
+}
+.join-text {
+	color: #333333;
+	font-size: 1.6em;
+	text-align: center;
+	padding: 10px 0 40px 0;
+	margin: 0;
+}
+.join-copy {
+	color: rgba(0,0,0,.5);
+	text-align: center;
+	margin-bottom: 20px;
+}
+.join-backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #eff7f8 url('../images/login-bg.png') center top;
+	background-size: cover;
+	z-index: 1;
+}
+.join-body .panel {
+	margin-bottom: 20px;
+	background-color: #fff;
+	border: none;
+	border-radius: 0;
+	-webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.join-body .panel-heading {
+	font-weight: 400;
+	border-bottom: 1px solid #dddddd;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+.join-body .panel-footer {
+  background-color: #f7f7f7;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.join-body textarea {
+	min-height: 200px;
+}
+.join-body textarea[readonly=readonly] {
+	color: #000000;
+	font-size: 1em;
+	line-height: 1.8em;
+	background: #ffffff;
+}
+.join-complete {
+	text-align: center;
+	padding: 40px 0;
+}
+.join-complete .fa {
+	color: #d44950;
+	font-size: 5em;
+	padding-bottom: 40px;
+}
+.join-complete h2 {
+	font-weight: 100;
+	padding: 30px 0;
+}
+.join-complete strong {
+	font-weight: 400;
+}
+.join-complete p strong {
+	color: #d44950;
+	font-size: 1.2em;
+}
+.write-box {
+	padding: 0;
+	margin: 0;
+	border: 1px solid #cccccc;
+}
+.write-box+.write-box {
+	border-top: none;
+}
+.write-box dt, .write-box dd {
+	display: inline-block;
+	padding: 10px 20px;
+}
+.write-box dt {
+	min-width: 180px;
+	font-weight: 100;
+	vertical-align: top;
+	padding-top: 15px;
+}
+.write-box 	label {
+	font-weight: 100;
+}
+
+/* 현장조사 */
+.greenhouse-img {
+	width: 100%;
+}
+
+.register {
+	color: #378137;
+}
+.unregistered {
+	color: #ce6e6e;
+}
+
+/* file */
+.file-upload-list {
+	margin: 0 15px;
+}
+.file-upload-list li {
+	position: relative;
+	padding-left: 18px;
+	margin: 6px 0;
+}
+.file-upload-list li:before {
+	content: "\f093";
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
+	/*--adjust as necessary--*/
+	color: #999999;
+	font-size: 1em;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* alert */
+.alert h1, .alert h2, .alert h3, .alert h4, .alert h5, .alert h6 {
+	margin-top: 5px;
+}
+
+/* photo */
+.photo-box {
+	border: 1px solid #dddddd;
+	background: #ffffff;
+}
+.photo-box .photo-none {
+	height: 176px;
+	text-align: center;
+	vertical-align: middle;
+	padding: 0;
+	margin: 10px;
+	background: #f7f7f7;
+}
+.photo-box .photo-none span {
+	display: block;
+	padding-top: 85px;
+}
+.photo-box img {
+	height: 196px;
+}
+.owl-nav {
+	position: relative;
+}
+.owl-carousel .owl-nav button {
+	position: absolute;
+	top: -120px;
+}
+.owl-carousel .owl-nav button.owl-next {
+	right: 10px;
+}
+.owl-carousel .owl-nav button.owl-prev {
+	left: 10px;
+}
+.owl-carousel .owl-nav button span {
+	font-size: 2.5em;
+	font-weight: bold;
+	color: rgba(255,255,255,0.8);
+}
+
+/* weather */
+.weather-info {
+	border: 1px solid #dddddd;
+}
+#weatherInfoDiv span {
+	margin-left: 15px;
+}
+#weatherInfoDiv span:first-child {
+	margin-left: 5px;
+}
+.text-temperature {
+	color: #30a15d;
+	font-size: 1.5em;
+}
+.dashboard-weather-icon {
+	color: #30a15d;
+	font-size: 1em;
+	line-height: 1em;
+}
+.weather-list-text {
+	position: absolute;
+	top: -30px;
+	right: 0;
+}
+.weather-list-block {
+	display: inline-block;
+	width: 13px;
+	height: 13px;
+	background: rgb(255, 255, 204);
+	border: 1px solid #dddddd;
+}
+.table.dashboard-weather-table th, .table.dashboard-weather-table td {
+	vertical-align: middle;
+	padding: 3px 2px !important;
+}
+/* counseling */
+.counseling-link {
+	padding: 20px;
+	margin: 0 auto;
+	border: 4px solid #dddddd;
+}
+.counseling-title {
+	padding: 0 0 15px 0;
+	margin: 0 0 15px 0;
+	border-bottom: 1px dashed #cccccc;
+}
+.counseling-title i.fa {
+	color: #666666;
+}
+
+/* bigdata */
+.time-height-scroll {
+	height: 284px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+.time-height-scroll .radio, .time-height-scroll .checkbox,
+.select-height-scroll .radio, .select-height-scroll .checkbox{
+	margin-bottom: 12px;
+}
+.time-height-scroll .radio:last-child, .time-height-scroll .checkbox:last-child,
+.select-height-scroll .radio:last-child, .select-height-scroll .checkbox:last-child{
+	margin-bottom: 0px;
+}
+.weather-priority-list li {
+	margin-top: 15px;
+}
+.weather-priority-list li .badge {
+	float: right;
+	width: 75px;
+	font-size: .9em;
+	font-weight: 100;
+}
+.select-height-scroll {
+	height: 257px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+/* growthData */
+tr.growth-avg td {
+	background-color: #edfbe0;
+}
+tr.growth-total td {
+	background-color: #fff1f9;
+}
+
+@media screen and (max-width: 768px) {
+	/* mobile */
+	.info-box { left:10px; right: 10px; width: inherit; }
+	.info-display { top: 10px; }
+	.info-table { top: 350px; }
+	.info-box.info-table-con { width: inherit; }
+	.search-box .btn-row-2 { min-height: inherit; }
+	.user-box .text-right { text-align: left; }
+	.user-box .fa-exchange { margin: 10px 0; }
+	.join-box { padding: 20px 10px; }
+	.write-box dt { width: 100%; padding: 10px 10px 0 10px; }
+	.write-box dd { width: 100%; padding: 5px 10px 10px 10px; }
+	.write-box dd .form-group { margin-bottom: 5px; }
+	.weather-list-text { position: relative; top: 0; left: 0; margin-bottom: 15px; }
+	.weather-list-block { margin-left: 0; }
+}

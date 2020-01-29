@@ -1,0 +1,133 @@
+
+.brand-symbol {
+    width: 100%;
+    padding: 7px 0 8px 0;
+    text-align: center;
+}
+.brand-img {
+    margin: 0 auto;
+}
+.sub-title {
+    color: #ffffff;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 24px;
+    margin: 0 0 10px 0;
+}
+.left-menu {
+    width: 180px;
+    margin: 0 0 0 20px;
+}
+.left-menu .left-menu-item a.left-menu-title {
+    position: relative;
+    display: block;
+    font-size: 1.1em;
+    font-weight: 400;
+    padding: 15px 0;
+}
+.left-menu .left-menu-item a.left-menu-title:hover,
+.left-menu .left-menu-item a.left-menu-title:focus {
+    color: #ffffff;
+}
+.left-menu .left-menu-item.active a.left-menu-title {
+    color: #ffffff;
+}
+.left-menu .left-menu-item.active a.left-menu-title:before {
+    content: "\f0d9";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    /*--adjust as necessary--*/
+    color: inherit;
+    font-size: 25px;
+    position: absolute;
+    top: 8px;
+    right: -23px;
+}
+.left-sub-menu {
+    margin: -5px 0 10px 0;
+}
+.left-sub-menu .left-sub-menu-item a {
+    position: relative;
+    display: block;
+    padding: 6px 0 6px 12px;
+}
+.left-sub-menu .left-sub-menu-item a:hover,
+.left-sub-menu .left-sub-menu-item a:focus {
+    color: #ffffff;
+}
+.left-sub-menu .left-sub-menu-item.active a {
+    color: #ffffff;
+}
+.left-sub-menu .left-sub-menu-item a:before {
+    content: "\f105";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    /*--adjust as necessary--*/
+    color: inherit;
+    font-size: 10px;
+    position: absolute;
+    top: 8px;
+    left: 0;
+}
+a.left-menu-title ,
+.left-sub-menu a {
+    transition: all 0.2s ease;
+}
+.left-menu-top-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 220px;
+    z-index: 50;
+}
+.left-menu-scroll {
+    width: 238px;
+    height: 89%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-top: 130px;
+    padding-bottom: 20px;
+    z-index: 10;
+}
+.sidebar {
+    height: 100%;
+    position: fixed;
+    width: 220px;
+    min-width: 220px;
+    max-width: 220px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1040;
+    transition: all 0.5s ease;
+    overflow: hidden;
+    background-image: url('../images/brand-symbol-sidebar.png');
+    background-repeat: no-repeat;
+    background-position: bottom center;
+}
+.sidebarBack {
+    position: fixed;
+    top: 0; left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    z-index: 1039;
+    visibility: hidden;
+}
+.sidebarBack.active {
+    visibility: visible;
+}
+
+@media screen and (max-width: 1199px) {
+    .sidebar { top: 0px; }
+    .sidebar:not(.active) { left: -220px; }
+    .sidebar.active { left: 0; }
+    .left-menu .left-menu-item.active a.left-menu-title:before { content: ""; }
+}
+@media screen and (min-width: 1200px) {
+    .sidebar { left: 0; top: 0; height: 100%; }
+}

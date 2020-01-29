@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="egovframework.example.sample.service.impl.BoardDao">
+
+	<select id="getBoard" resultType="egovframework.example.sample.service.BoardModel">
+		SELECT @rownum := @rownum + 1 AS ROWNUM, T1.*FROM(
+		select type
+			, 	id
+			,	volunteerStep
+			,	name
+			,	birth
+			,	engName
+			,	email
+			,	translation
+			,	emp
+			,	substring(regdate,1,10) as regdate 
+		from board
+		) T1 INNER JOIN (SELECT @rownum := 0) T2
+	</select>
+	
+	<select id="Detail" resultType="egovframework.example.sample.service.BoardModel">
+		select * from board
+		where id = #{id}
+		
+	</select>
+	
+	<insert id="register" keyProperty="id">
+		INSERT INTO board (name
+		, engName
+		, email
+		, emailAgree
+		, letterAgree
+		, birth
+		, solarLunar
+		, job
+		, adress
+		, adressCheck
+		, fileName
+		, fileOriName
+		, contents
+		, regP
+		, regdate
+		, updateP
+		, updateDate
+		, emp
+		, type
+		, volunteerStep
+		, noLetterCnt
+		, translation
+		, penalty
+		, mberId
+		, phoneNum
+		, fileUrl
+		) 
+		VALUES (#{name}
+		, #{engName}
+		, #{email}
+		, #{emailAgree}
+		, #{letterAgree}
+		, #{birth}
+		, #{solarLunar}
+		, #{job}
+		, #{adress}
+		, #{adressCheck}
+		, #{fileName}
+		, #{fileOriName}
+		, #{contents}
+		, #{regP}
+		, NOW()
+		, #{updateP}
+		, NOW()
+		, #{emp}
+		, #{type}
+		, #{volunteerStep}
+		, #{noLetterCnt}
+		, #{translation}
+		, #{penalty}
+		, #{mberId}
+		, #{phoneNum}
+		, #{fileUrl}
+		)
+	</insert>
+	
+	<select id="read" resultType="egovframework.example.sample.service.BoardModel">
+		SELECT * FROM board WHERE id=#{id}
+	</select>
+	
+	<update id="modify" parameterType="egovframework.example.sample.service.BoardModel" >
+        UPDATE board 
+        SET
+        	type = #{type}
+        	, noLetterCnt = #{noLetterCnt}
+        	, volunteerStep = #{volunteerStep}
+        	, penalty = #{penalty}
+        	, translation = #{translation}
+        	, updateP = #{updateP}
+        	, emp = #{emp}
+        	
+        WHERE 
+        	id=#{id}
+    </update>
+    
+    <delete id="delete" parameterType="egovframework.example.sample.service.BoardModel">
+   		DELETE FROM board WHERE id=#{id}
+   	</delete>
+
+</mapper>

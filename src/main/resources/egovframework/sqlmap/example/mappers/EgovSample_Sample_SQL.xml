@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="egovframework.example.sample.service.impl.SampleMapper">
+
+	<resultMap id="sample" type="egovframework.example.sample.service.SampleVO">
+		<result property="type" column="type"/>
+		<result property="id" column="id"/>
+		<result property="volunteerStep" column="volunteerStep"/>
+		<result property="name" column="name"/>
+		<result property="birth" column="birth"/>
+		<result property="engName" column="engName"/>
+		<result property="email" column="email"/>
+		<result property="translation" column="translation"/>
+		<result property="emp" column="emp"/>
+		<result property="regdate" column="regdate"/>
+		<result property="emailAgree" column="emailAgree"/>
+		<result property="letterAgree" column="letterAgree"/>
+		<result property="adressCheck" column="adressCheck"/>
+	</resultMap>
+
+	<insert id="insertSample" parameterType="SampleVO">
+
+		INSERT INTO board (name
+		, engName
+		, email
+		, emailAgree
+		, letterAgree
+		, birth
+		, solarLunar
+		, job
+		, adress
+		, adressCheck
+		, fileName
+		, fileOriName
+		, contents
+		, regP
+		, regdate
+		, updateP
+		, updateDate
+		, emp
+		, type
+		, volunteerStep
+		, noLetterCnt
+		, translation
+		, penalty
+		, mberId
+		, phoneNum
+		, fileUrl
+		) 
+		VALUES (#{name}
+		, #{engName}
+		, #{email}
+		, #{emailAgree}
+		, #{letterAgree}
+		, #{birth}
+		, #{solarLunar}
+		, #{job}
+		, #{adress}
+		, #{adressCheck}
+		, #{fileName}
+		, #{fileOriName}
+		, #{contents}
+		, #{regP}
+		, NOW()
+		, #{updateP}
+		, NOW()
+		, #{emp}
+		, #{type}
+		, #{volunteerStep}
+		, #{noLetterCnt}
+		, #{translation}
+		, #{penalty}
+		, #{mberId}
+		, #{phoneNum}
+		, #{fileUrl}
+		)
+
+	</insert>
+
+	<update id="updateSample">
+
+			UPDATE board 
+	        SET
+	        	type = #{type}
+	        	, noLetterCnt = #{noLetterCnt}
+	        	, volunteerStep = #{volunteerStep}
+	        	, penalty = #{penalty}
+	        	, translation = #{translation}
+	        	, updateP = #{updateP}
+	        	, emp = #{emp}
+	        	
+	        WHERE 
+	        	id=#{id}
+
+	</update>
+
+	<delete id="deleteSample">
+
+			DELETE FROM board
+			WHERE ID=#{id}
+
+	</delete>
+
+	<select id="selectSample" resultMap="sample">
+
+			SELECT
+				*
+			FROM board
+			WHERE ID=#{id}
+
+	</select>
+
+	<select id="selectSampleList" parameterType="searchVO" resultType="egovMap">
+
+			select type
+			, 	id
+			,	volunteerStep
+			,	name
+			,	birth
+			,	engName
+			,	email
+			,	translation
+			,	emp
+			,	substring(regdate,1,10) as regdate 
+		from test.board
+			WHERE 1=1
+			<if test="searchKeyword != null and searchKeyword != ''">
+		        <choose>
+		            <when test="searchCondition == 1">
+						AND	name LIKE '%' #{searchKeyword} '%'
+					</when>
+		            <when test="searchCondition == 2">
+						AND	engName LIKE '%' #{searchKeyword} '%'
+					</when>
+					<when test="searchCondition == 3">
+						AND	phoneNum LIKE '%' #{searchKeyword} '%'
+					</when>
+					<when test="searchCondition == 4">
+						AND	emp LIKE '%' #{searchKeyword} '%'
+					</when>
+				</choose>
+			</if>
+			<if test="searchCondition1 != ''">
+				<choose>
+					<when test="searchCondition1 == 1">
+						AND	type 
+					</when>
+					<when test="searchCondition1 == 2">
+						AND	type LIKE '%' #{searchCondition1} '%'
+					</when>
+					<when test="searchCondition1 == 3">
+						AND	type LIKE '%' #{searchCondition1} '%'
+					</when>
+					<when test="searchCondition1 == 4">
+						AND	type LIKE '%' #{searchCondition1} '%'
+					</when>
+					<when test="searchCondition1 == 5">
+						AND	type LIKE '%' #{searchCondition1} '%'
+					</when>
+					<when test="searchCondition1 == 6">
+						AND	type LIKE '%' #{searchCondition1} '%'
+					</when>
+					<when test="searchCondition1 == 7">
+						AND	type LIKE '%' #{searchCondition1} '%'
+					</when>
+					<when test="searchCondition1 == 8">
+						AND	type LIKE '%' #{searchCondition1} '%'
+					</when>
+				</choose>
+			</if>
+			<if test="searchCondition2 != ''">
+				<choose>
+					<when test="searchCondition2 == 0">
+						AND	volunteerStep 
+					</when>
+					<when test="searchCondition2 == 1">
+						AND	volunteerStep LIKE '%' #{searchCondition2} '%'
+					</when>
+					<when test="searchCondition2 == 2">
+						AND	volunteerStep LIKE '%' #{searchCondition2} '%'
+					</when>
+				</choose>
+			</if>
+			<if test="searchCondition3 != ''">
+				<choose>
+					<when test="searchCondition3 == 1">
+						AND	translation 
+					</when>
+					<when test="searchCondition3 == 2">
+						AND	translation LIKE '%' #{searchCondition3} '%'
+					</when>
+					<when test="searchCondition3 == 3">
+						AND	translation LIKE '%' #{searchCondition3} '%'
+					</when>
+				</choose>
+			</if>
+			ORDER BY id DESC
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+			<!-- LIMIT #{recordCountPerPage}는 몇번 째부터 시작할지 --> 
+			
+	</select>
+
+	<select id="selectSampleListTotCnt" parameterType="searchVO" resultType="int">
+
+			SELECT COUNT(*) totcnt
+			FROM test.board
+			WHERE 1=1
+			
+			<if test="searchKeyword != null and searchKeyword != ''">
+		        <choose>
+		            <when test="searchCondition == 1">
+						AND	name LIKE '%' #{searchKeyword} '%'
+					</when>
+		            <when test="searchCondition == 2">
+						AND	engName LIKE '%' #{searchKeyword} '%'
+					</when>
+					<when test="searchCondition == 3">
+						AND	phoneNum LIKE '%' #{searchKeyword} '%'
+					</when>
+					<when test="searchCondition == 4">
+						AND	emp LIKE '%' #{searchKeyword} '%'
+					</when>
+				</choose>
+			</if>
+			<if test="searchCondition1 != ''">
+				<choose>
+					<when test="searchCondition1 == 1">
+						AND	type 
+					</when>
+					<when test="searchCondition1 == 2">
+						AND	type LIKE '%' #{searchCondition1} '%'
+					</when>
+					<when test="searchCondition1 == 3">
+						AND	type LIKE '%' #{searchCondition1} '%'
+					</when>
+					<when test="searchCondition1 == 4">
+						AND	type LIKE '%' #{searchCondition1} '%'
+					</when>
+					<when test="searchCondition1 == 5">
+						AND	type LIKE '%' #{searchCondition1} '%'
+					</when>
+					<when test="searchCondition1 == 6">
+						AND	type LIKE '%' #{searchCondition1} '%'
+					</when>
+					<when test="searchCondition1 == 7">
+						AND	type LIKE '%' #{searchCondition1} '%'
+					</when>
+					<when test="searchCondition1 == 8">
+						AND	type LIKE '%' #{searchCondition1} '%'
+					</when>
+				</choose>
+			</if>
+			<if test="searchCondition2 != ''">
+				<choose>
+					<when test="searchCondition2 != 1">
+						AND	volunteerStep 
+					</when>
+					<when test="searchCondition2 != 2">
+						AND	volunteerStep 
+					</when>
+					<when test="searchCondition2 == 1">
+						AND	volunteerStep LIKE '%' #{searchCondition2} '%'
+					</when>
+					<when test="searchCondition2 == 2">
+						AND	volunteerStep LIKE '%' #{searchCondition2} '%'
+					</when>
+				</choose>
+			</if>
+			<if test="searchCondition3 != ''">
+				<choose>
+					<when test="searchCondition3 == 1">
+						AND	translation 
+					</when>
+					<when test="searchCondition3 == 2">
+						AND	translation LIKE '%' #{searchCondition3} '%'
+					</when>
+					<when test="searchCondition3 == 3">
+						AND	translation LIKE '%' #{searchCondition3} '%'
+					</when>
+				</choose>
+			</if>
+			ORDER BY id DESC
+	</select>
+	<select id="excelDown" parameterType="searchVO" resultType="sampleVO">
+
+			select type
+			, 	id
+			,	volunteerStep
+			,	name
+			,	birth
+			,	engName
+			,	email
+			,	translation
+			,	emp
+			,	substring(regdate,1,10) as regdate 
+		from test.board
+			WHERE 1=1
+			<if test="searchKeyword != null and searchKeyword != ''">
+		        <choose>
+		            <when test="searchCondition == 1">
+						AND	name LIKE '%' #{searchKeyword} '%'
+					</when>
+		            <when test="searchCondition == 2">
+						AND	engName LIKE '%' #{searchKeyword} '%'
+					</when>
+					<when test="searchCondition == 3">
+						AND	phoneNum LIKE '%' #{searchKeyword} '%'
+					</when>
+					<when test="searchCondition == 4">
+						AND	emp LIKE '%' #{searchKeyword} '%'
+					</when>
+				</choose>
+			</if>
+			<if test="searchCondition1 != ''">
+				<choose>
+					<when test="searchCondition1 == 1">
+						AND	type 
+					</when>
+					<when test="searchCondition1 == 2">
+						AND	type LIKE '%' #{searchCondition1} '%'
+					</when>
+					<when test="searchCondition1 == 3">
+						AND	type LIKE '%' #{searchCondition1} '%'
+					</when>
+					<when test="searchCondition1 == 4">
+						AND	type LIKE '%' #{searchCondition1} '%'
+					</when>
+					<when test="searchCondition1 == 5">
+						AND	type LIKE '%' #{searchCondition1} '%'
+					</when>
+					<when test="searchCondition1 == 6">
+						AND	type LIKE '%' #{searchCondition1} '%'
+					</when>
+					<when test="searchCondition1 == 7">
+						AND	type LIKE '%' #{searchCondition1} '%'
+					</when>
+					<when test="searchCondition1 == 8">
+						AND	type LIKE '%' #{searchCondition1} '%'
+					</when>
+				</choose>
+			</if>
+			<if test="searchCondition2 != ''">
+				<choose>
+					<when test="searchCondition2 == 0">
+						AND	volunteerStep 
+					</when>
+					<when test="searchCondition2 == 1">
+						AND	volunteerStep LIKE '%' #{searchCondition2} '%'
+					</when>
+					<when test="searchCondition2 == 2">
+						AND	volunteerStep LIKE '%' #{searchCondition2} '%'
+					</when>
+				</choose>
+			</if>
+			<if test="searchCondition3 != ''">
+				<choose>
+					<when test="searchCondition3 == 1">
+						AND	translation 
+					</when>
+					<when test="searchCondition3 == 2">
+						AND	translation LIKE '%' #{searchCondition3} '%'
+					</when>
+					<when test="searchCondition3 == 3">
+						AND	translation LIKE '%' #{searchCondition3} '%'
+					</when>
+				</choose>
+			</if>
+			ORDER BY id DESC
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+	</select>
+</mapper>
